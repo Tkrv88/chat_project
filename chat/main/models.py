@@ -1,8 +1,8 @@
 from django.db import models
 
-class Persone(models.Model):
-    login = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
-    first_name = models.CharField(max_length=50)
-    last_name = models.CharField(max_length=50)
+class Message(models.Model):
+    time = models.DateTimeField(auto_now_add=True)
+    text = models.TextField()
+    user_id = models.IntegerField()
+    message_id = id = models.BigAutoField(primary_key=True)
 # Create your models here.
