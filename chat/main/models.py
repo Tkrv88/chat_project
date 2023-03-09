@@ -5,6 +5,11 @@ User = get_user_model()
 
 
 class Chat(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        blank=False,
+    )
     title = models.CharField(max_length=50, blank=False)
     description = models.CharField(max_length=100)
     privacy = models.BooleanField(default=True)
