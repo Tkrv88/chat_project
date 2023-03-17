@@ -6,6 +6,7 @@ from .views import *
 router = SimpleRouter()
 router.register('chats', ChatViewSet)
 router.register('messages', MessageViewSet)
+router.register('subscribe', ChatSubscribersViewSet)
 
 app_name = 'main'
 
