@@ -31,7 +31,21 @@ class Message(models.Model):
     chat = models.ForeignKey(
         Chat,
         on_delete=models.CASCADE,
-        blank=False
+        related_name='messages'
     )
     text = models.TextField()
     send_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.text
+
+
+class ChatSubscribers(models.Model):
+    chat = models.ForeignKey(
+        Chat,
+        on_delete=models.CASCADE
+    )
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE
+    )
