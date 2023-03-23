@@ -13,8 +13,9 @@ urlpatterns = [
     path('api/v1/', include('main.urls', namespace='main')),
     path("admin/", admin.site.urls),
     # path('api-token-auth/', views.obtain_auth_token),
-    path('api-auth', include('rest_framework.urls')),
-    path('auth/', include('djoser.urls'))
+    path('drf-auth', include('rest_framework.urls')),
+    path('api-auth/', include('djoser.urls')),
+    re_path(r'^auth/', include('djoser.urls.authtoken')),
 ]
 
 schema_view = get_schema_view(
